@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "dl" {
-  bucket = "datalake-psalomao-155914520574"
+  bucket = "datalake-psalomao-155914520574-tf"
   acl    = "private"
 
   tags = {
