@@ -20,7 +20,6 @@ enem = (
     .option("delimiter", ";")
     .load("s3://datalake-psalomao-155914520574/raw-data/")
 )
-
 # Escreve a tabela em staging em formato delta
 print("Writing delta table...")
 (
