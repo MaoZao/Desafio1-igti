@@ -1,7 +1,7 @@
 resource "aws_s3_bucket_object" "job_spark" {
   bucket = aws_s3_bucket.dl.id
-  key    = "emr-code/pyspark/job_spark.py"
+  key    = "emr-code/pyspark/job_spark-tf.py"
   acl    = "private"
-  source = "../job_spark.py"
-  etag   = filemd5("../job_spark.py")
+  source = "../job_spark-tf.py"
+  etag   = filemd5("../job_spark-tf.py")
 }
