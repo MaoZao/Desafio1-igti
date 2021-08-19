@@ -11,7 +11,7 @@ def handler(event, context):
                 ServiceRole='EMR_DefaultRole',
                 JobFlowRole='EMR_EC2_DefaultRole',
                 VisibleToAllUsers=True,
-                LogUri='s3://datalake-psalomao-155914520574-tf/emr-logs',
+                LogUri='s3://datalake-psalomao-155914520574/emr-logs',
                 ReleaseLabel='emr-6.3.0',
                 Instances={
                     'InstanceGroups': [
@@ -90,7 +90,7 @@ def handler(event, context):
                         'Args': ['spark-submit',
                                  '--master', 'yarn',
                                  '--deploy-mode', 'cluster',
-                                 's3://datalake-psalomao-155914520574-tf/emr-code/pyspark/job_spark.py'
+                                 's3://datalake-psalomao-155914520574/emr-code/pyspark/job_spark-tf.py'
                                  ]
                     }
                 }],
