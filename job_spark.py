@@ -16,7 +16,7 @@ censo = (
 )
 
 (
-    enem
+    censo
     .write
     .mode("overwrite")
     .format("parquet")
