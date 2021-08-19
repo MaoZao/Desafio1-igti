@@ -78,17 +78,14 @@ def handler(event, context):
                 StepConcurrencyLevel=1,
                 
                 Steps=[{
-                    'Name': 'Delta Insert do Censo Escolar',
+                    'Name': 'Spark do Censo Escolar',
                     'ActionOnFailure': 'CONTINUE',
                     'HadoopJarStep': {
                         'Jar': 'command-runner.jar',
                         'Args': ['spark-submit',
-                                 '--packages', 'io.delta:delta-core_2.12:1.0.0', 
-                                 '--conf', 'spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension', 
-                                 '--conf', 'spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog', 
                                  '--master', 'yarn',
                                  '--deploy-mode', 'cluster',
-                                 's3://datalake-psalomao-155914520574-tf/emr-code/pyspark/job_spark_delta.py'
+                                 's3://datalake-psalomao-155914520574-tf/emr-code/pyspark/job_spark.py'
                                  ]
                     }
                 }],
