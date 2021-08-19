@@ -90,7 +90,7 @@ def handler(event, context):
                         'Args': ['spark-submit',
                                  '--master', 'yarn',
                                  '--deploy-mode', 'cluster',
-                                 's3://datalake-psalomao-155914520574/emr-code/pyspark/job_spark-tf.py'
+                                 's3://datalake-psalomao-155914520574-tf/emr-code/pyspark/job_spark-tf.py'
                                  ]
                     }
                 }],
