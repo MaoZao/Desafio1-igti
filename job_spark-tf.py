@@ -12,7 +12,7 @@ censo = (
     .option("inferSchema", True)
     .option("header", True)
     .option("delimiter", "|")
-    .csv("s3://datalake-psalomao-155914520574-tf/raw-data/matricula_*.csv")
+    .csv("s3://datalake-psalomao-155914520574/raw-data/matricula_*.csv")
 )
 
 (
@@ -21,5 +21,5 @@ censo = (
     .mode("overwrite")
     .format("parquet")
     .partitionBy("CO_UF")
-    .save("s3://datalake-psalomao-155914520574-tf/staging-zone/censo")
+    .save("s3://datalake-psalomao-155914520574/staging-zone/censo/")
 )
