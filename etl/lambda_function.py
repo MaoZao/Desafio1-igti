@@ -38,7 +38,12 @@ def handler(event, context):
 
                 Applications=[
                     {'Name': 'Spark'},
-                    {'Name': 'Hive'}
+                    {'Name': 'Hive'},
+                    {'Name': 'Pig'},
+                    {'Name': 'Hue'},
+                    {'Name': 'JupyterHub'},
+                    {'Name': 'JupyterEnterpriseGateway'},
+                    {'Name': 'Livy'},
                 ],
 
                 Configurations=[{
