@@ -13,19 +13,19 @@ spark = (SparkSession.builder.appName("DeltaExercise")
 from delta.tables import *
 
 # Leitura de dados
-enem = (
-    spark.read.format("csv")
+censo = (
+    spark.read
     .option("inferSchema", True)
     .option("header", True)
-    .option("delimiter", ";")
-    .load("s3://datalake-psalomao-155914520574/raw-data/*.csv")
+    .option("delimiter", "|")
+    .csv("s3://datalake-psalomao-155914520574-tf/raw-data/matricula_*.csv")
 )
 # Escreve a tabela em staging em formato delta
 print("Writing delta table...")
 (
-    enem
+    censo
     .write
     .mode("overwrite")
-    .format("delta")
-    .save("s3://datalake-psalomao-igti-tf/staging-zone/")
+    .format("parquet")
+    .save("datalake-psalomao-155914520574-tf/staging-zone/censo")
 )
