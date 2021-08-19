@@ -11,7 +11,7 @@ def handler(event, context):
                 ServiceRole='EMR_DefaultRole',
                 JobFlowRole='EMR_EC2_DefaultRole',
                 VisibleToAllUsers=True,
-                LogUri='s3://datalake-psalomao-155914520574/emr-logs',
+                LogUri='s3://datalake-psalomao-155914520574-tf/emr-logs',
                 ReleaseLabel='emr-6.3.0',
                 Instances={
                     'InstanceGroups': [
@@ -37,7 +37,8 @@ def handler(event, context):
                 },
 
                 Applications=[
-                    {'Name': 'Spark'}
+                    {'Name': 'Spark'},
+                    {'Name': 'Hive'}
                 ],
 
                 Configurations=[{
@@ -87,7 +88,7 @@ def handler(event, context):
                                  '--conf', 'spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog', 
                                  '--master', 'yarn',
                                  '--deploy-mode', 'cluster',
-                                 's3://datalake-psalomao-155914520574/emr-code/pyspark/job_spark_delta.py'
+                                 's3://datalake-psalomao-155914520574-tf/emr-code/pyspark/job_spark_delta.py'
                                  ]
                     }
                 }],
