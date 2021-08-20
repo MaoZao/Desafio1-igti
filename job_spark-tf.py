@@ -1,4 +1,3 @@
-from pyspark.sql.functions import mean, max, min, col, count
 from pyspark.sql import SparkSession
 
 spark = (
@@ -20,6 +19,6 @@ censo = (
     .write
     .mode("overwrite")
     .format("parquet")
-    .partitionBy("NU_ANO_CENSO")
+    .partitionBy("CO_UF")
     .save("s3://datalake-psalomao-155914520574-tf/staging-zone/censo/")
 )
