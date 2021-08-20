@@ -83,7 +83,7 @@ def handler(event, context):
                 StepConcurrencyLevel=1,
                 
                 Steps=[{
-                    'Name': 'Spark do Censo Escolar',
+                    'Name': 'Executa Job Censo tranforma CSV em parquet',
                     'ActionOnFailure': 'CONTINUE',
                     'HadoopJarStep': {
                         'Jar': 'command-runner.jar',
@@ -93,10 +93,12 @@ def handler(event, context):
                                  's3://datalake-psalomao-155914520574-tf/emr-code/pyspark/job_spark-tf.py'
                                  ]
                     }
-                }],
+                },
+                ],
             )
     
     return {
         'statusCode': 200,
         'body': f"Started job flow {cluster_id['JobFlowId']}"
     }
+    

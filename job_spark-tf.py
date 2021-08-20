@@ -20,6 +20,6 @@ censo = (
     .write
     .mode("overwrite")
     .format("parquet")
-    .partitionBy("CO_UF")
+    .partitionBy("NU_ANO_CENSO")
     .save("s3://datalake-psalomao-155914520574-tf/staging-zone/censo/")
 )
